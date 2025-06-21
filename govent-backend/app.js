@@ -31,7 +31,9 @@ app.use(
       'http://localhost:3000',
       'https://localhost:9000',
       'https://govent.zeabur.app',
-    ],
+      process.env.FRONTEND_URL, // Vercel 部署 URL
+      /\.vercel\.app$/, // 允許所有 Vercel 域名
+    ].filter(Boolean), // 過濾掉 undefined 值
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true,
   })
