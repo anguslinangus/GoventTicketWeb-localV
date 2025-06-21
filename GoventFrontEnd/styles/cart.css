@@ -1,0 +1,17 @@
+/* cart */
+.cart-card {
+  height: auto;
+  max-width: 1200px;
+}
+
+.cart-card .iconbar {
+  font-size: 18px;
+} /*# sourceMappingURL=cart.css.map */
+
+.h4 {
+  font-size: 26px;
+  margin: 0;
+}
+.p {
+  font-size: 14px;
+}

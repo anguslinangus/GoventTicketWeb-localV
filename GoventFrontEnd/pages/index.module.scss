@@ -1,0 +1,33 @@
+.image-container {
+  margin-inline: auto;
+  position: relative;
+  display: inline-block;
+  height: 100%;
+  img {
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.image-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, #15151500 60%, #151515 95%);
+}
+
+.carousel-caption {
+  z-index: 999;
+}
+
+.secondary-title-start {
+  border-left: 10px solid #f16e0f;
+  border-right: 10px solid #f16e0f;
+  border-radius: 5px;
+}

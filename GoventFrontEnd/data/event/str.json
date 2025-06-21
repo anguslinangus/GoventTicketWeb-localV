@@ -1,0 +1,29 @@
+[
+  { "id": 1, "name": "北部地區", "parent_id": null, "cities": [
+    { "id": 5, "name": "台北市", "parent_id": 1 },
+    { "id": 6, "name": "新北市", "parent_id": 1 },
+    { "id": 7, "name": "桃園市", "parent_id": 1 },
+    { "id": 8, "name": "基隆市", "parent_id": 1 },
+    { "id": 9, "name": "新竹市", "parent_id": 1 },
+    { "id": 10, "name": "新竹縣", "parent_id": 1 },
+    { "id": 11, "name": "宜蘭縣", "parent_id": 1 }
+  ]},
+  { "id": 2, "name": "中部地區", "parent_id": null, "cities": [
+    { "id": 12, "name": "苗栗縣", "parent_id": 2 },
+    { "id": 13, "name": "台中市", "parent_id": 2 },
+    { "id": 14, "name": "南投縣", "parent_id": 2 },
+    { "id": 15, "name": "彰化縣", "parent_id": 2 },
+    { "id": 16, "name": "雲林縣", "parent_id": 2 }
+  ]},
+  { "id": 3, "name": "南部地區", "parent_id": null, "cities": [
+    { "id": 17, "name": "嘉義縣", "parent_id": 3 },
+    { "id": 18, "name": "嘉義市", "parent_id": 3 },
+    { "id": 19, "name": "台南市", "parent_id": 3 },
+    { "id": 20, "name": "高雄市", "parent_id": 3 },
+    { "id": 21, "name": "屏東縣", "parent_id": 3 }
+  ]},
+  { "id": 4, "name": "東部地區", "parent_id": null, "cities": [
+    { "id": 22, "name": "花蓮縣", "parent_id": 4 },
+    { "id": 23, "name": "台東縣", "parent_id": 4 }
+  ]}
+]

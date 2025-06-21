@@ -1,0 +1,243 @@
+
+[
+{
+    "id": "1",
+    "event_id": "115",
+    "ticket_name": "一日遊門票",
+    "price": "890",
+    "max_quantity": "1000",
+    "holding_time": "2023-06-01 00:00:00"
+},
+{
+    "id": "2",
+    "event_id": "10",
+    "ticket_name": "一般票",
+    "price": "690",
+    "max_quantity": "900",
+    "holding_time": "2023-06-02 18:00:00"
+},
+{
+    "id": "3",
+    "event_id": "12",
+    "ticket_name": "VIP前排座位",
+    "price": "4600",
+    "max_quantity": "1000",
+    "holding_time": "2023-06-02 18:00:00"
+},
+{
+    "id": "4",
+    "event_id": "73",
+    "ticket_name": "簽名見面票",
+    "price": "100",
+    "max_quantity": "800",
+    "holding_time": "2023-06-04 13:00:00"
+},
+{
+    "id": "5",
+    "event_id": "115",
+    "ticket_name": "主題活動票",
+    "price": "150",
+    "max_quantity": "500",
+    "holding_time": "2023-06-16 11:00:00"
+},
+{
+    "id": "6",
+    "event_id": "135",
+    "ticket_name": "白金票",
+    "price": "200",
+    "max_quantity": "400",
+    "holding_time": "2023-06-24 11:00:00"
+},
+{
+    "id": "7",
+    "event_id": "30",
+    "ticket_name": "早鳥票",
+    "price": "850",
+    "max_quantity": "600",
+    "holding_time": "2023-06-21 16:00:00"
+},
+{
+    "id": "8",
+    "event_id": "115",
+    "ticket_name": "兒童票",
+    "price": "420",
+    "max_quantity": "1000",
+    "holding_time": "2023-06-16 11:00:00"
+},
+{
+    "id": "9",
+    "event_id": "112",
+    "ticket_name": "空中觀景券",
+    "price": "50",
+    "max_quantity": "2000",
+    "holding_time": "2023-06-16 11:00:00"
+},
+{
+    "id": "10",
+    "event_id": "73",
+    "ticket_name": "後台體驗券",
+    "price": "900",
+    "max_quantity": "1200",
+    "holding_time": "2023-06-04 13:00:00"
+},
+{
+    "id": "11",
+    "event_id": "119",
+    "ticket_name": "限時特惠票",
+    "price": "260",
+    "max_quantity": "400",
+    "holding_time": "2023-06-30 12:00:00"
+},
+{
+    "id": "12",
+    "event_id": "115",
+    "ticket_name": "家庭套票",
+    "price": "299",
+    "max_quantity": "200",
+    "holding_time": "2023-06-16 11:00:00"
+},
+{
+    "id": "13",
+    "event_id": "108",
+    "ticket_name": "特色觀光券",
+    "price": "750",
+    "max_quantity": "500",
+    "holding_time": "2023-06-16 11:00:00"
+},
+{
+    "id": "14",
+    "event_id": "108",
+    "ticket_name": "全程導覽套票",
+    "price": "600",
+    "max_quantity": "1000",
+    "holding_time": "2023-06-16 11:00:00"
+},
+{
+    "id": "15",
+    "event_id": "73",
+    "ticket_name": "粉絲專屬票",
+    "price": "120",
+    "max_quantity": "1100",
+    "holding_time": "2023-06-04 13:00:00"
+},
+{
+    "id": "16",
+    "event_id": "103",
+    "ticket_name": "星光門票",
+    "price": "1880",
+    "max_quantity": "50",
+    "holding_time": "2023-06-02 18:00:00"
+},
+{
+    "id": "17",
+    "event_id": "103",
+    "ticket_name": "週末門票",
+    "price": "1450",
+    "max_quantity": "30",
+    "holding_time": "2023-06-16 11:00:00"
+},
+{
+    "id": "18",
+    "event_id": "48",
+    "ticket_name": "快閃體驗券",
+    "price": "0",
+    "max_quantity": "150",
+    "holding_time": "2023-06-18 11:00:00"
+},
+{
+    "id": "19",
+    "event_id": "30",
+    "ticket_name": "敬老票",
+    "price": "200",
+    "max_quantity": "35",
+    "holding_time": "2023-06-21 16:00:00"
+},
+{
+    "id": "20",
+    "event_id": "30",
+    "ticket_name": "團體票",
+    "price": "800",
+    "max_quantity": "200",
+    "holding_time": "2023-06-21 16:00:00"
+},
+{
+    "id": "21",
+    "event_id": "30",
+    "ticket_name": "學生票",
+    "price": "600",
+    "max_quantity": "800",
+    "holding_time": "2023-06-21 16:00:00"
+},
+{
+    "id": "22",
+    "event_id": "94",
+    "ticket_name": "獨家體驗票",
+    "price": "450",
+    "max_quantity": "300",
+    "holding_time": "2023-06-30 12:00:00"
+},
+{
+    "id": "23",
+    "event_id": "10",
+    "ticket_name": "聯名票券",
+    "price": "300",
+    "max_quantity": "450",
+    "holding_time": "2023-06-02 18:00:00"
+},
+{
+    "id": "24",
+    "event_id": "135",
+    "ticket_name": "限量特製票券",
+    "price": "3000",
+    "max_quantity": "1200",
+    "holding_time": "2023-06-24 11:00:00"
+},
+{
+    "id": "25",
+    "event_id": "119",
+    "ticket_name": "全日通票",
+    "price": "1200",
+    "max_quantity": "120",
+    "holding_time": "2023-06-25 15:00:00"
+},
+{
+    "id": "26",
+    "event_id": "94",
+    "ticket_name": "工作坊參與券",
+    "price": "1500",
+    "max_quantity": "100",
+    "holding_time": "2023-06-30 12:00:00"
+},
+{
+    "id": "27",
+    "event_id": "94",
+    "ticket_name": "專業學習票券",
+    "price": "2150",
+    "max_quantity": "150",
+    "holding_time": "2023-06-30 12:00:00"
+},
+{
+    "id": "28",
+    "event_id": "113",
+    "ticket_name": "環境生態導覽券 ",
+    "price": "800",
+    "max_quantity": "30",
+    "holding_time": "2023-06-16 11:00:00"
+},
+{
+    "id": "29",
+    "event_id": "113",
+    "ticket_name": "互動體驗套票",
+    "price": "2000",
+    "max_quantity": "30",
+    "holding_time": "2023-06-16 11:00:00"
+},
+{
+    "id": "30",
+    "event_id": "59",
+    "ticket_name": "免費入場券",
+    "price": "0",
+    "max_quantity": "500",
+    "holding_time": "2023-06-30 12:00:00"
+}
+]
