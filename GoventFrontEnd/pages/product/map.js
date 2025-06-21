@@ -90,7 +90,7 @@ export default Map
 // }
 
 // export default GoogleApiWrapper({
-//   apiKey: 'AIzaSyAHFrjbu51UUJwGpirJ1l6vhsfT6LbFcrY'
+//   apiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY // 使用環境變數
 // })(MapContainer);
 
 // // 在另一個元件中使用 MapContainer
