@@ -1,0 +1,38 @@
+/* product list */
+.nav_btn {
+    border-bottom: color(#C55708)
+}
+.btn-outline-primary-deep {
+    --bs-btn-color: #C55708;
+    --bs-btn-border-bottom :var(var(--bs-btn-border-color))
+    /* --bs-btn-border-color: #C55708; */
+    --bs-btn-hover-color: #000;
+    --bs-btn-hover-bg: #C55708;
+    --bs-btn-hover-border-color: #C55708;
+    --bs-btn-focus-shadow-rgb: 197, 87, 8;
+    --bs-btn-active-color: #000;
+    --bs-btn-active-bg: #C55708;
+    --bs-btn-active-border-color: #C55708;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #C55708;
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: #C55708;
+    --bs-gradient: none;
+  }
+  
+  .btn-outline-primary-deep-50 {
+    --bs-btn-color: rgba(197, 87, 8, 0.5058823529);
+    --bs-btn-border-color: rgba(197, 87, 8, 0.5058823529);
+    --bs-btn-hover-color: #000;
+    --bs-btn-hover-bg: rgba(197, 87, 8, 0.5058823529);
+    --bs-btn-hover-border-color: rgba(197, 87, 8, 0.5058823529);
+    --bs-btn-focus-shadow-rgb: 197, 87, 8;
+    --bs-btn-active-color: #000;
+    --bs-btn-active-bg: rgba(197, 87, 8, 0.5058823529);
+    --bs-btn-active-border-color: rgba(197, 87, 8, 0.5058823529);
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: rgba(197, 87, 8, 0.5058823529);
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: rgba(197, 87, 8, 0.5058823529);
+    --bs-gradient: none;
+  }

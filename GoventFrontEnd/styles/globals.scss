@@ -1,0 +1,237 @@
+// 檔案位置: styles/global.scss
+// 變數覆蓋用 (Variable overrides)
+// 全站配色 colors
+$primary: #f16e0f;
+$secondary: rgba(41, 41, 40, 0.5);
+$success: #3c873b;
+$danger: #ff4136;
+$info: #92e9e4;
+$warning: #16c258;
+// 按鈕圓角邊 button radius
+$border-radius: 0.2em;
+$border-radius-sm: 0.2em;
+$border-radius-lg: 0.2em;
+
+// 固定card高度
+// https://getbootstrap.com/docs/5.3/components/card/#grid-cards
+$card-height: 100%;
+
+// ↑↑↑  變數覆蓋(Variable overrides) 要寫在這行"上面"  ↑↑↑
+// 這裡導入所有 bootstrap 樣式
+// 最後營運階段(實務)可以用部份導入來進行最佳化
+// 參考: https://getbootstrap.com/docs/5.3/customize/sass/#importing
+@import '../node_modules/bootstrap/scss/functions'; // 必要的方法
+@import '../styles/variables'; // 自行定義的變數路徑
+@import '../node_modules/bootstrap/scss/mixins';
+
+@import '../node_modules/bootstrap/scss/bootstrap'; // Bootstrap 完整原始碼
+// ↓↓↓  其它客製樣式要寫在這行的"下面" ↓↓↓
+
+// bs5內建圖示字體
+// 如果有使用其它圖示字體可以註解不使用
+@import '~bootstrap-icons/font/bootstrap-icons';
+
+// google Noto Sans TC 字體
+@import 'https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;200;300;400;500;600;700;800;900&display=swap';
+
+// fixed for __next root div
+#__next {
+  flex-direction: column;
+  height: 100%;
+  display: flex;
+}
+
+// main > .container {
+//   padding: 0px 15px 0;
+// }
+
+:root {
+  --primary-color: #f16e0f;
+  --primary-50-color: #f16d0f83;
+  --primary-light-color: #e88741;
+  --primary-deep-color: #c55708;
+  --primary-deep-50-color: #c5570881;
+  --normal-black-color: #000;
+  --normal-gray-deep-color: #121212;
+  --normal-gray-color: #404040;
+  --normal-gray-light-color: #b4b4b4;
+  --normal-white-color: #fff;
+  --secondary-01-color: #f2dd72;
+  --secondary-02-color: #8c7f68;
+  --secondary-03-color: #bf9765;
+  --bg-gray-color: #1e1e1e;
+  --bg-gray-light-color: #232323;
+  --bg-gray-secondary-color: #282828;
+  --bg-dark-color: #151515;
+  --bg-backend-color: #eaedf2;
+  --search-bar-color: #8282827e;
+  --none: rgba(0, 0, 0, 0);
+}
+
+body {
+  font-family: 'Noto Sans TC', Helvetica, Arial, 'PingFang TC', '苹方-繁',
+    'Heiti TC', '黑體-繁', 'Microsoft JhengHei', '微軟正黑體',
+    // Cross-platform generic font family (default user interface font)
+    system-ui,
+    // Safari for macOS and iOS (San Francisco)
+    -apple-system,
+    // Windows
+    'Segoe UI',
+    // Android
+    Roboto,
+    // Basic web fallback
+    'Helvetica Neue',
+    Arial,
+    // Linux
+    'Noto Sans',
+    'Liberation Sans',
+    // Sans serif fallback
+    sans-serif,
+    // Emoji fonts
+    'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  background-color: var(--bg-gray-color);
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  letter-spacing: 0.1rem;
+}
+
+.sm-p,
+.xs-p {
+  letter-spacing: 0.05rem;
+}
+
+h1 {
+  font-size: 64px;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 48px;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+h4 {
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+h5 {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+h6 {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+p,
+.p {
+  font-size: 14px;
+  font-weight: 300;
+  margin-bottom: 0;
+}
+
+.sm-p {
+  font-size: 12px;
+  font-weight: 300;
+}
+
+.xs-p {
+  font-size: 10px;
+  font-weight: 300;
+}
+
+.form-member {
+  max-width: 330px;
+  padding: 1rem;
+}
+
+.width-1200 {
+  width: 1200px;
+}
+
+.max-width-1440 {
+  max-width: 1440px;
+}
+
+.custom-input-shadow-none:focus {
+  box-shadow: none;
+}
+
+.navbar .navbar-nav .nav-item::after {
+  display: none;
+}
+
+.nav-link:hover {
+  color: #f16e0f;
+}
+.bottom-line {
+  border-bottom: 1px solid var(--normal-gray-color);
+}
+.right-line {
+  border-right: 1px solid var(--normal-gray-color);
+}
+
+.text-link {
+  color: white;
+  transition: 300ms;
+  &:hover {
+    color: var(--primary-light-color);
+  }
+}
+
+.swal2-popup {
+  background-color: var(--bg-gray-light-color);
+  box-shadow: 1px 1px 8px black;
+  color: white;
+  .swal2-actions {
+    button {
+      background-color: var(--primary-color);
+    }
+  }
+  h2 {
+    padding: 0.4em 1em 0;
+  }
+  .swal2-html-container {
+    color: var(--normal-gray-light-color);
+    margin: 0.5em 0.5em 0.3em;
+  }
+}
+
+.text-shadow {
+  text-shadow: 0 0 3px black;
+}
+
+.ql-size-small {
+  font-size: 0.75em;
+}
+.ql-size-large {
+  font-size: 1.5em;
+}
+.ql-size-huge {
+  font-size: 2.5em;
+}
+
+// below is test only
