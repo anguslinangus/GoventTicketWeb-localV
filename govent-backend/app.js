@@ -18,7 +18,7 @@ const __dirname = path.dirname(__filename)
 
 // 讓console.log呈現檔案與行號，與字串訊息呈現顏色用
 import { extendLog } from '#utils/tool.js'
-// import 'colors' // 暫時移除 colors 以修復部署問題
+import 'colors'
 extendLog()
 
 // 建立 Express 應用程式
@@ -30,10 +30,7 @@ app.use(
     origin: [
       'http://localhost:3000',
       'https://localhost:9000',
-      'https://govent.zeabur.app',
-      process.env.FRONTEND_URL, // Vercel 部署 URL
-      /\.vercel\.app$/, // 允許所有 Vercel 域名
-    ].filter(Boolean), // 過濾掉 undefined 值
+    ],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true,
   })
