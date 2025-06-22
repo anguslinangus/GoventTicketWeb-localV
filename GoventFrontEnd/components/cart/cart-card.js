@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Image from 'react-bootstrap/Image'
 import toastStyle from '@/components/user/custom-toastify.module.css'
 import { Modal } from 'react-bootstrap'
+import { imageBaseUrl } from '@/configs'
 
 export default function CartCard({
   foundMt = () => {},
@@ -86,7 +87,7 @@ export default function CartCard({
                             />
                             <div className="bg-normal-white rounded-4 product-img">
                               <Image
-                                src={`http://localhost:3005/images/banner/${v.images}`}
+                                src={`${imageBaseUrl}/banner/${v.images}`}
                                 className=" rounded-start object-fit-cover"
                                 alt="..."
                               />
