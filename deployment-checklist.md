@@ -112,3 +112,39 @@
 - [ ] 記錄部署 URL
 - [ ] 更新 API 文件
 - [ ] 建立運維手冊 
+
+## 🗃️ 步驟 1: PlanetScale 資料庫設定
+
+### **請跟著以下步驟操作：**
+
+**1. 註冊並建立資料庫**
+- 前往 https://planetscale.com/
+- 點擊 "Sign up" 用 GitHub 帳號登入
+- 建立新資料庫，建議命名為 "govent-production"
+- 選擇區域：建議選 "Asia-Pacific (Singapore)" 獲得最佳效能
+
+**2. 取得資料庫連線資訊**
+在 PlanetScale 儀表板中：
+1. 進入你的資料庫
+2. 點擊 "Connect" 
+3. 選擇 "Node.js" 
+4. 複製連線字串 (會類似這樣)：
+   mysql://username:password@host:3306/database_name?ssl={"rejectUnauthorized":true}
+
+**3. 建立資料表**
+在 PlanetScale 的 "Console" 分頁中，貼上並執行我剛建立的 `migration.sql` 內容。
+
+---
+
+## **當你完成 PlanetScale 設定後，請告訴我你的：**
+1. ✅ 資料庫已建立
+2. 📝 資料庫連線資訊 (DB_HOST, DB_USERNAME, DB_PASSWORD, DB_DATABASE)
+3. ✅ 資料表已建立成功
+
+然後我們就可以繼續下一步：**Render 後端部署**！
+
+**同時，你可以在等待的時候先註冊這些帳號：**
+- [Render.com](https://render.com) (用 GitHub 登入)
+- [Vercel.com](https://vercel.com) (用 GitHub 登入)
+
+這樣等等部署會更快！你現在去設定 PlanetScale，完成後回來告訴我！ 

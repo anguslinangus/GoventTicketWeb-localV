@@ -18,7 +18,7 @@ const __dirname = path.dirname(__filename)
 
 // 讓console.log呈現檔案與行號，與字串訊息呈現顏色用
 import { extendLog } from '#utils/tool.js'
-import 'colors'
+// import 'colors' // 暫時移除 colors 以修復部署問題
 extendLog()
 
 // 建立 Express 應用程式
