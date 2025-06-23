@@ -283,7 +283,7 @@ router.post('/forgetPasswordEmail', async (req, res) => {
     const mailOptions = {
       from: process.env.SMTP_FROM_EMAIL,
       to: email,
-      subject: 'GoVent - 重設密碼',
+      subject: 'Govent - 重設密碼',
       html: `
         <h2>重設密碼請求</h2>
         <p>請點擊以下連結重設您的密碼：</p>
