@@ -251,11 +251,11 @@ router.post('/forgetPasswordEmail', async (req, res) => {
       })
     }
 
-    // 生成重設密碼的token
+    // 生成重設密碼的token (可自訂到期時間)
     const resetToken = jwt.sign(
       { userId: user[0].id, email: user[0].username },
       process.env.JWT_SECRET_KEY,
-      { expiresIn: '1h' }
+      { expiresIn: '2h' } // 改為2小時，可根據需要調整
     )
 
     // 發送重設密碼郵件
@@ -264,13 +264,96 @@ router.post('/forgetPasswordEmail', async (req, res) => {
     const mailOptions = {
       from: process.env.SMTP_FROM_EMAIL,
       to: email,
-      subject: 'GoVent - 重設密碼',
-      html: `
-        <h2>重設密碼請求</h2>
-        <p>請點擊以下連結重設您的密碼：</p>
-        <a href="${resetUrl}">${resetUrl}</a>
-        <p>此連結將在1小時後過期。</p>
-      `
+      subject: 'Govent - 重設密碼請求',
+      html: `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" />
+      <html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:v="urn:schemas-microsoft-com:vml">
+        <head>
+                     <title>Govent - 重設密碼</title>
+          <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+          <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+          <meta name="x-apple-disable-message-reformatting" />
+          <style>
+            * { text-size-adjust: 100%; -ms-text-size-adjust: 100%; -moz-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; }
+            html { height: 100%; width: 100%; }
+            body { height: 100% !important; margin: 0 !important; padding: 0 !important; width: 100% !important; mso-line-height-rule: exactly; }
+            table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+            img { border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; }
+            @media only screen and (max-width:600px) {
+              .cBlock--spacingLR { padding-left: 16px !important; padding-right: 16px !important; }
+            }
+          </style>
+        </head>
+        <body style="background-color:#f4f4f4; margin:0; width:100%;">
+          <table align="center" width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td align="center" width="100%" style="padding: 40px 10px;" bgcolor="#f4f4f4">
+                <div style="margin:0 auto; width:100%; max-width:640px;">
+                  <!-- Header -->
+                  <table align="center" width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td align="left" width="100%" bgcolor="#121212" style="padding: 48px 32px 16px 32px;">
+                                                 <h1 style="color:#ffffff; font-size:24px; font-weight:bold; font-family:'PingFang TC','微軟正黑體','Microsoft JhengHei','Helvetica Neue',Helvetica,Arial,sans-serif; padding:0; margin:0; line-height:1.4;">
+                           🔐 Govent 密碼重設請求
+                         </h1>
+                      </td>
+                    </tr>
+                  </table>
+                  
+                  <!-- Content -->
+                  <table align="center" width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td align="left" width="100%" bgcolor="#121212" style="padding: 16px 32px;">
+                        <p style="color:#ffffff; font-size:16px; font-family:'PingFang TC','微軟正黑體','Microsoft JhengHei','Helvetica Neue',Helvetica,Arial,sans-serif; padding:0; margin:0 0 16px 0; line-height:1.6;">
+                          親愛的會員您好，
+                        </p>
+                        <p style="color:#ffffff; font-size:16px; font-family:'PingFang TC','微軟正黑體','Microsoft JhengHei','Helvetica Neue',Helvetica,Arial,sans-serif; padding:0; margin:0 0 24px 0; line-height:1.6;">
+                          我們收到了您的密碼重設請求。請點擊下方按鈕來重設您的密碼：
+                        </p>
+                      </td>
+                    </tr>
+                  </table>
+                  
+                  <!-- Button -->
+                  <table align="center" width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td align="center" width="100%" bgcolor="#121212" style="padding: 0px 32px 32px 32px;">
+                        <table border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td align="center" bgcolor="#F16E0F" style="border-radius:6px;">
+                              <a href="${resetUrl}" target="_blank" style="color:#ffffff; border-radius:6px; display:inline-block; text-decoration:none; font-size:16px; font-weight:bold; letter-spacing:1px; padding:12px 32px;">
+                                <span style="color:#ffffff; text-decoration:none; font-family:'PingFang TC','微軟正黑體','Microsoft JhengHei','Helvetica Neue',Helvetica,Arial,sans-serif;">
+                                  重設我的密碼
+                                </span>
+                              </a>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                  
+                  <!-- Footer Info -->
+                  <table align="center" width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td align="left" width="100%" bgcolor="#121212" style="padding: 0px 32px 48px 32px;">
+                        <p style="color:#cccccc; font-size:14px; font-family:'PingFang TC','微軟正黑體','Microsoft JhengHei','Helvetica Neue',Helvetica,Arial,sans-serif; padding:0; margin:0 0 12px 0; line-height:1.6;">
+                          ⚠️ 此連結將在 <strong style="color:#F16E0F;">2小時後</strong> 過期。
+                        </p>
+                        <p style="color:#cccccc; font-size:14px; font-family:'PingFang TC','微軟正黑體','Microsoft JhengHei','Helvetica Neue',Helvetica,Arial,sans-serif; padding:0; margin:0 0 12px 0; line-height:1.6;">
+                          如果您沒有要求重設密碼，請忽略此郵件。
+                        </p>
+                        <p style="color:#cccccc; font-size:14px; font-family:'PingFang TC','微軟正黑體','Microsoft JhengHei','Helvetica Neue',Helvetica,Arial,sans-serif; padding:0; margin:0; line-height:1.6;">
+                                                     如有任何問題，請聯繫 Govent 客服團隊。
+                        </p>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </body>
+      </html>`
     }
 
     await transporter.sendMail(mailOptions)
