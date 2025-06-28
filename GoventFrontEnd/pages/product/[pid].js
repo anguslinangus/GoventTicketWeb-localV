@@ -233,35 +233,11 @@ export default function Detail() {
               </p>
             </div>
           ))}
-          {/* RWD 主頁按鈕 */}
-          <div>
-            <div className="position-relative">
-              <div className="d-flex justify-content-between d-block d-xxl-none">
-                <Link href="/product/list">
-                  <button className="nav-btn opacity-50 position-absolute top-0 start-0">
-                    <i className="bi bi-arrow-left "></i>
-                  </button>
-                </Link>
-
-                <div className="position-absolute top-0 end-0">
-                  {/* <Link href="">
-                    <button className="nav-btn opacity-50">
-                      <i className="bi bi-heart "></i>
-                    </button>
-                  </Link> */}
-                  <Link href="/cart/">
-                    <button className="nav-btn opacity-50">
-                      <i className="bi bi-cart3 "></i>
-                    </button>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
+          {/* RWD 主頁按鈕 - 已移除不必要的導航按鈕 */}
           {/* 主頁圖片 */}
           <div>
             <img
-              src={`http://localhost:3005/images/banner/${
+              src={`/images/banner/${
                 eventInfo[0]?.banner?.split(',')[0]
               }`}
               className="object-fit-cover"

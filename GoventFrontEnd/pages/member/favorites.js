@@ -88,7 +88,7 @@ export default function MemberFavorites() {
                   <div className="event-img me-4">
                     <Link href={`/product/${data.pid}`}>
                       <img
-                        src={`http://localhost:3005/images/banner/${data.banner}`}
+                        src={`/images/banner/${data.banner}`}
                         alt=""
                       />
                     </Link>

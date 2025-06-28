@@ -209,7 +209,7 @@ export default function OrganizerEvent() {
                         <Col sm="12">
                           <div className="object-fit">
                             <img
-                              src={`http://localhost:3005/images/banner/${eventInfo.banner}`}
+                              src={`/images/banner/${eventInfo.banner}`}
                             />
                           </div>
                         </Col>
