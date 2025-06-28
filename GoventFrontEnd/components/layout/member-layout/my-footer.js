@@ -15,14 +15,14 @@ export default function MyFooter() {
               <p className="text-normal-black my-1">Cookie 政策</p>
             </div>
           </div>
-          <div>
-            <div className="mb-3 text-end">
-              <img src="./govent-logo-black.png" alt="" />
-            </div>
-            <p className="text-muted">
-              COPYRIGHT © 2024 GOVENT All right reserved
-            </p>
+                  <div>
+          <div className="mb-3 text-end">
+            <img src="/govent-logo-black.png" alt="" />
           </div>
+          <p className="text-muted">
+            COPYRIGHT © 2024 GOVENT All right reserved
+          </p>
+        </div>
         </div>
       </div>
     </footer>

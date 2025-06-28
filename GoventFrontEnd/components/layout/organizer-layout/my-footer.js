@@ -16,7 +16,7 @@ export default function MyFooter() {
         </div>
         <div>
           <div className="mb-3 text-end">
-            <img src="./govent-logo-black.png" alt="" />
+            <img src="/govent-logo-black.png" alt="" />
           </div>
           <p className="text-muted">
             COPYRIGHT © 2024 GOVENT All right reserved

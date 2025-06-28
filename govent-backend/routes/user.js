@@ -251,36 +251,28 @@ router.post('/forgetPasswordEmail', async (req, res) => {
       })
     }
 
-    // 生成重設密碼的token (可自訂到期時間)
-    const resetToken = jwt.sign(
-      { userId: user[0].id, email: user[0].username },
-      process.env.JWT_SECRET_KEY,
-      { expiresIn: '2h' } // 改為2小時，可根據需要調整
-    )
-
-    // 發送重設密碼郵件
-    const resetUrl = `${process.env.FRONTEND_URL}/user/reset-password?token=${resetToken}`
+    // 生成6位數驗證碼
+    const verificationCode = Math.floor(100000 + Math.random() * 900000).toString()
     
+    // 將驗證碼存儲到資料庫（使用簡單的方式，也可以建立專門的otp表）
+    // 這裡我們暫時存儲在 session 或使用記憶體，實際應用中建議使用Redis或資料庫
+    
+    // 發送驗證碼郵件
     const mailOptions = {
       from: process.env.SMTP_FROM_EMAIL,
       to: email,
-      subject: 'Govent - 重設密碼請求',
+      subject: 'Govent - 密碼重設驗證碼',
       html: `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" />
-      <html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:v="urn:schemas-microsoft-com:vml">
+      <html xmlns="http://www.w3.org/1999/xhtml">
         <head>
-                     <title>Govent - 重設密碼</title>
+          <title>Govent - 密碼重設驗證碼</title>
           <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
           <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-          <meta name="x-apple-disable-message-reformatting" />
           <style>
-            * { text-size-adjust: 100%; -ms-text-size-adjust: 100%; -moz-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; }
+            * { text-size-adjust: 100%; }
             html { height: 100%; width: 100%; }
-            body { height: 100% !important; margin: 0 !important; padding: 0 !important; width: 100% !important; mso-line-height-rule: exactly; }
+            body { height: 100% !important; margin: 0 !important; padding: 0 !important; width: 100% !important; }
             table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
-            img { border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; }
-            @media only screen and (max-width:600px) {
-              .cBlock--spacingLR { padding-left: 16px !important; padding-right: 16px !important; }
-            }
           </style>
         </head>
         <body style="background-color:#f4f4f4; margin:0; width:100%;">
@@ -292,9 +284,9 @@ router.post('/forgetPasswordEmail', async (req, res) => {
                   <table align="center" width="100%" border="0" cellspacing="0" cellpadding="0">
                     <tr>
                       <td align="left" width="100%" bgcolor="#121212" style="padding: 48px 32px 16px 32px;">
-                                                 <h1 style="color:#ffffff; font-size:24px; font-weight:bold; font-family:'PingFang TC','微軟正黑體','Microsoft JhengHei','Helvetica Neue',Helvetica,Arial,sans-serif; padding:0; margin:0; line-height:1.4;">
-                           🔐 Govent 密碼重設請求
-                         </h1>
+                        <h1 style="color:#ffffff; font-size:24px; font-weight:bold; font-family:'PingFang TC','微軟正黑體','Microsoft JhengHei','Helvetica Neue',Helvetica,Arial,sans-serif; padding:0; margin:0; line-height:1.4;">
+                          🔢 Govent 密碼重設驗證碼
+                        </h1>
                       </td>
                     </tr>
                   </table>
@@ -304,30 +296,24 @@ router.post('/forgetPasswordEmail', async (req, res) => {
                     <tr>
                       <td align="left" width="100%" bgcolor="#121212" style="padding: 16px 32px;">
                         <p style="color:#ffffff; font-size:16px; font-family:'PingFang TC','微軟正黑體','Microsoft JhengHei','Helvetica Neue',Helvetica,Arial,sans-serif; padding:0; margin:0 0 16px 0; line-height:1.6;">
-                          親愛的會員您好，
+                          親愛的 Govent 會員您好，
                         </p>
                         <p style="color:#ffffff; font-size:16px; font-family:'PingFang TC','微軟正黑體','Microsoft JhengHei','Helvetica Neue',Helvetica,Arial,sans-serif; padding:0; margin:0 0 24px 0; line-height:1.6;">
-                          我們收到了您的密碼重設請求。請點擊下方按鈕來重設您的密碼：
+                          請輸入以下 6 位數驗證碼來重設您的密碼：
                         </p>
                       </td>
                     </tr>
                   </table>
                   
-                  <!-- Button -->
+                  <!-- OTP Code -->
                   <table align="center" width="100%" border="0" cellspacing="0" cellpadding="0">
                     <tr>
                       <td align="center" width="100%" bgcolor="#121212" style="padding: 0px 32px 32px 32px;">
-                        <table border="0" cellspacing="0" cellpadding="0">
-                          <tr>
-                            <td align="center" bgcolor="#F16E0F" style="border-radius:6px;">
-                              <a href="${resetUrl}" target="_blank" style="color:#ffffff; border-radius:6px; display:inline-block; text-decoration:none; font-size:16px; font-weight:bold; letter-spacing:1px; padding:12px 32px;">
-                                <span style="color:#ffffff; text-decoration:none; font-family:'PingFang TC','微軟正黑體','Microsoft JhengHei','Helvetica Neue',Helvetica,Arial,sans-serif;">
-                                  重設我的密碼
-                                </span>
-                              </a>
-                            </td>
-                          </tr>
-                        </table>
+                        <div style="background-color:#F16E0F; border-radius:8px; padding:20px; display:inline-block;">
+                          <span style="color:#ffffff; font-size:32px; font-weight:bold; font-family:'Courier New',monospace; letter-spacing:8px;">
+                            ${verificationCode}
+                          </span>
+                        </div>
                       </td>
                     </tr>
                   </table>
@@ -337,13 +323,13 @@ router.post('/forgetPasswordEmail', async (req, res) => {
                     <tr>
                       <td align="left" width="100%" bgcolor="#121212" style="padding: 0px 32px 48px 32px;">
                         <p style="color:#cccccc; font-size:14px; font-family:'PingFang TC','微軟正黑體','Microsoft JhengHei','Helvetica Neue',Helvetica,Arial,sans-serif; padding:0; margin:0 0 12px 0; line-height:1.6;">
-                          ⚠️ 此連結將在 <strong style="color:#F16E0F;">2小時後</strong> 過期。
+                          ⚠️ 此驗證碼將在 <strong style="color:#F16E0F;">30分鐘後</strong> 過期。
                         </p>
                         <p style="color:#cccccc; font-size:14px; font-family:'PingFang TC','微軟正黑體','Microsoft JhengHei','Helvetica Neue',Helvetica,Arial,sans-serif; padding:0; margin:0 0 12px 0; line-height:1.6;">
                           如果您沒有要求重設密碼，請忽略此郵件。
                         </p>
                         <p style="color:#cccccc; font-size:14px; font-family:'PingFang TC','微軟正黑體','Microsoft JhengHei','Helvetica Neue',Helvetica,Arial,sans-serif; padding:0; margin:0; line-height:1.6;">
-                                                     如有任何問題，請聯繫 Govent 客服團隊。
+                          如有任何問題，請聯繫 Govent 客服團隊。
                         </p>
                       </td>
                     </tr>
@@ -358,15 +344,135 @@ router.post('/forgetPasswordEmail', async (req, res) => {
 
     await transporter.sendMail(mailOptions)
 
+    // 將驗證碼存儲到記憶體中（實際應用建議使用Redis）
+    global.verificationCodes = global.verificationCodes || {}
+    global.verificationCodes[email] = {
+      code: verificationCode,
+      timestamp: Date.now() + 30 * 60 * 1000 // 30分鐘後過期
+    }
+
     return res.json({ 
       status: 'success', 
-      message: '重設密碼郵件已發送' 
+      message: '重設密碼驗證信已寄出，請至您的信箱查看',
+      code: verificationCode // 開發時可回傳，正式環境要移除
     })
   } catch (error) {
     console.error('發送重設密碼郵件失敗:', error)
     return res.status(500).json({ 
       status: 'error', 
       message: '發送郵件失敗' 
+    })
+  }
+})
+
+// 驗證重設密碼驗證碼路由
+router.post('/validateResetCode', async (req, res) => {
+  const { email, code } = req.body
+
+  try {
+    // 檢查驗證碼是否存在及是否過期
+    if (!global.verificationCodes || !global.verificationCodes[email]) {
+      return res.status(400).json({ 
+        status: 'error', 
+        message: '驗證碼不存在或已過期' 
+      })
+    }
+
+    const storedData = global.verificationCodes[email]
+    
+    // 檢查是否過期
+    if (Date.now() > storedData.timestamp) {
+      delete global.verificationCodes[email]
+      return res.status(400).json({ 
+        status: 'error', 
+        message: '驗證碼已過期' 
+      })
+    }
+
+    // 檢查驗證碼是否正確
+    if (storedData.code !== code) {
+      return res.status(400).json({ 
+        status: 'error', 
+        message: '驗證碼錯誤' 
+      })
+    }
+
+    // 驗證成功，標記為已驗證
+    global.verificationCodes[email].verified = true
+
+    return res.json({ 
+      status: 'success', 
+      message: '驗證成功' 
+    })
+  } catch (error) {
+    console.error('驗證驗證碼失敗:', error)
+    return res.status(500).json({ 
+      status: 'error', 
+      message: '驗證失敗' 
+    })
+  }
+})
+
+// 重設密碼路由
+router.post('/resetPassword', async (req, res) => {
+  const { username, newPassword } = req.body
+
+  try {
+    // 檢查用戶是否存在
+    const user = await sequelize.query(
+      'SELECT * FROM member WHERE username = :username',
+      {
+        replacements: { username },
+        type: QueryTypes.SELECT,
+      }
+    )
+
+    if (user.length === 0) {
+      return res.status(404).json({ 
+        status: 'error', 
+        message: '用戶不存在' 
+      })
+    }
+
+    // 檢查驗證碼是否已驗證
+    if (!global.verificationCodes || 
+        !global.verificationCodes[username] || 
+        !global.verificationCodes[username].verified) {
+      return res.status(400).json({ 
+        status: 'error', 
+        message: '請先完成驗證碼驗證' 
+      })
+    }
+
+    // 檢查新密碼是否與舊密碼相同
+    if (user[0].password === newPassword) {
+      return res.status(400).json({ 
+        status: 'error', 
+        message: '新密碼不能與舊密碼相同' 
+      })
+    }
+
+    // 更新密碼
+    await sequelize.query(
+      'UPDATE member SET password = :newPassword WHERE username = :username',
+      {
+        replacements: { newPassword, username },
+        type: QueryTypes.UPDATE,
+      }
+    )
+
+    // 清除驗證碼記錄
+    delete global.verificationCodes[username]
+
+    return res.json({ 
+      status: 'success', 
+      message: '密碼重設成功' 
+    })
+  } catch (error) {
+    console.error('重設密碼失敗:', error)
+    return res.status(500).json({ 
+      status: 'error', 
+      message: '重設密碼失敗' 
     })
   }
 })

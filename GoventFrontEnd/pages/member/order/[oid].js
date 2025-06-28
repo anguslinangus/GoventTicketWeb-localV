@@ -245,7 +245,7 @@ export default function MemberOrderInfo() {
                         transition={{ duration: 0.4 }}
                         className="order-content d-flex"
                       >
-                        <Image src={`http://localhost:3005/images/banner/${eventInfo.banner}`} width={300} />
+                        <Image src={`/images/banner/${eventInfo.banner}`} width={300} />
                         <div className='ms-4'>
                           <h4 className='mb-3'>{eventInfo.event_name}</h4>
                           <div className="d-flex align-items-center mb-2">

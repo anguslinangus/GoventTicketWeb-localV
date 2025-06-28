@@ -29,7 +29,7 @@ const Heart = ({ size = 20, color = 'red' }) => (
   <svg
     className="heart"
     viewBox="0 0 32 29.6"
-    style={{ opacity: 0.8, width: size, fill: color, position: 'relative' }}
+    style={{ opacity: 1, width: size, fill: color, position: 'relative' }}
   >
     <path d="M23.6 0c-3.4 0-6.3 2.7-7.6 5.6C14.7 2.7 11.8 0 8.4 0 3.8 0 0 3.8 0 8.4c0 9.4 9.5 11.9 16 21.2 6.1-9.3 16-12.1 16-21.2C32 3.8 28.2 0 23.6 0z" />
   </svg>
@@ -105,19 +105,26 @@ export default function FavIcon({ id, pid }) {
       {/* 由favorites狀態決定呈現實心or空心愛愛圖示 */}
       {(favorites || []).includes(productId) ? (
         <button
-          className={`btn bg-bg-gray `}
+          className={`btn`}
           style={{
             position: 'absolute',
             right: 5,
             top: 5,
-            padding: 0,
+            padding: '8px',  // 增加點擊區域
             border: 'none',
-            // background: 'none',
+            zIndex: 10,      // 確保在其他元素之上
+            minWidth: '32px', // 最小寬度
+            minHeight: '32px', // 最小高度
+            background: 'transparent', // 透明背景
           }}
-          onClick={() => {
+          onClick={(e) => {
+            // 阻止事件冒泡，避免觸發父層的 Link
+            e.preventDefault()
+            e.stopPropagation()
+            
             // 沒登入不能用
             if (!auth.isAuthenticated) {
-              return toast.error('會員才能使用!')
+              return toast.error('請登入會員才能使用')
             }
 
             handleRemoveFav(productId)
@@ -127,18 +134,26 @@ export default function FavIcon({ id, pid }) {
         </button>
       ) : (
         <button
-          className={`btn bg-bg-gray`}
+          className={`btn`}
           style={{
             position: 'absolute',
             right: 5,
             top: 5,
-            padding: 0,
+            padding: '8px',  // 增加點擊區域
             border: 'none',
+            zIndex: 10,      // 確保在其他元素之上
+            minWidth: '32px', // 最小寬度
+            minHeight: '32px', // 最小高度
+            background: 'transparent', // 透明背景
           }}
-          onClick={() => {
+          onClick={(e) => {
+            // 阻止事件冒泡，避免觸發父層的 Link
+            e.preventDefault()
+            e.stopPropagation()
+            
             // 沒登入不能用
             if (!auth.isAuthenticated) {
-              return toast.error('會員才能使用!')
+              return toast.error('請登入會員才能使用')
             }
 
             handleAddFav(productId)

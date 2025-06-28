@@ -213,7 +213,7 @@ export default function List() {
                       <div className="card bg-bg-gray-secondary text-white px-0 no-border">
                         <figure>
                           <img
-                            src={`http://localhost:3005/images/banner/${
+                            src={`/images/banner/${
                               v.banner?.split(',')[0]
                             }`}
                             alt=""

@@ -6,6 +6,9 @@ import '@/styles/product.scss'
 import '@/styles/cart.scss'
 import '@/styles/loader.scss'
 
+// Toast 設置
+import { Toaster } from 'react-hot-toast'
+
 // 載入購物車context
 import { CartProvider } from '@/hooks/use-cart'
 // 載入認証用context
@@ -35,7 +38,23 @@ export default function MyApp({ Component, pageProps }) {
     <AuthProvider>
       <GoogleAuthAuthProvider>
         <LoaderProvider close={2} CustomLoader={CatLoader}>
-          <CartProvider>{getLayout(<Component {...pageProps} />)}</CartProvider>
+          <CartProvider>
+            {getLayout(<Component {...pageProps} />)}
+            <Toaster
+              position="top-center"
+              toastOptions={{
+                duration: 3000,
+                style: {
+                                      background: '#333',
+                    color: '#fff',
+                    fontSize: '1.2em',   // 字體放大 1.2 倍
+                    padding: '16px 24px',  // 增加內邊距
+                    minWidth: '300px',     // 最小寬度
+                  borderRadius: '8px',   // 圓角
+                },
+              }}
+            />
+          </CartProvider>
         </LoaderProvider>
       </GoogleAuthAuthProvider>
     </AuthProvider>

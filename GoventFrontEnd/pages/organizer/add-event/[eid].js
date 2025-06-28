@@ -377,7 +377,7 @@ function OrganizerOtptionForm() {
                           <div className="me-3">
                             <Image
                               className="rounded-3"
-                              src={`http://localhost:3005/images/banner/${eventInfo.banner}`}
+                              src={`/images/banner/${eventInfo.banner}`}
                               height={85}
                             />
                           </div>

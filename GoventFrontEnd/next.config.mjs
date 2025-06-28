@@ -1,15 +1,26 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
-  webpack(config) {
+  reactStrictMode: false,
+  
+  // SVG 處理配置
+  webpack: (config) => {
     config.module.rules.push({
-      test: /\.svg$/,
-      issuer: /\.[jt]sx?$/,
+      test: /\.svg$/i,
       use: ['@svgr/webpack'],
-    });
-
-    return config;
+    })
+    return config
   },
-};
 
-export default nextConfig;
+  // 圖片配置
+  images: {
+    domains: ['localhost'],
+    unoptimized: true
+  },
+
+  // 環境變數配置
+  env: {
+    CUSTOM_KEY: 'my-value',
+  },
+}
+
+export default nextConfig

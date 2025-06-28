@@ -218,7 +218,7 @@ export default function OrganizerEvent() {
                                     上架中
                                   </Badge>
                                   <img
-                                    src={`http://localhost:3005/images/banner/${event.banner}`}
+                                    src={`/images/banner/${event.banner}`}
                                     alt=""
                                   />
                                 </Col>
@@ -328,7 +328,7 @@ export default function OrganizerEvent() {
                                     審核中
                                   </Badge>
                                   <img
-                                    src={`http://localhost:3005/images/banner/${event.banner}`}
+                                    src={`/images/banner/${event.banner}`}
                                     alt=""
                                   />
                                 </Col>
@@ -439,7 +439,7 @@ export default function OrganizerEvent() {
                                   已過期
                                 </Badge>
                                 <img
-                                  src={`http://localhost:3005/images/banner/${event.banner}`}
+                                  src={`/images/banner/${event.banner}`}
                                   alt=""
                                 />
                               </Col>

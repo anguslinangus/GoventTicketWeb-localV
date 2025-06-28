@@ -17,7 +17,7 @@ export default function ProductInfo({ productData = {} }) {
               style={{ height: '100px', width: '200px' }}
             >
               <Image
-                src={`http://localhost:3005/images/banner/${v.images}`}
+                src={`/images/banner/${v.images}`}
                 alt=""
                 className="rounded-3 w-100 h-100"
                 style={{ objectFit: 'cover' }}

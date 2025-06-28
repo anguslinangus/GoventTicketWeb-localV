@@ -8,7 +8,7 @@ import { motion, useTime, useTransform } from 'framer-motion'
 
 // 載入svg
 import GoventStar from '@/public/images/index-silder/govent-star.svg'
-import BG01 from '@/public/images/index-silder/bg-01.svg'
+// import BG01 from '@/public/images/index-silder/bg-01.svg'
 import BG02 from '@/public/images/index-silder/bg-02.svg'
 
 export default function Home() {
@@ -47,7 +47,7 @@ export default function Home() {
               style={{ rotate }}
               className="bg-rotate"
             >
-              <BG01 className={`bg-01-color`} />
+              <img src="/images/index-silder/bg-01.svg" className={`bg-01-color`} alt="background" />
             </motion.div>
           </div>
           <Carousel.Caption

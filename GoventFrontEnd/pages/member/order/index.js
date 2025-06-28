@@ -70,7 +70,7 @@ export default function MemberOrder() {
                     <div className="event-img me-4 d-flex flex-column">
                       <div className="flex-1 main-img">
                         <img
-                          src={`http://localhost:3005/images/banner/${
+                          src={`/images/banner/${
                             JSON.parse(data.order_info)[0].images
                           }`}
                           alt=""
@@ -83,7 +83,7 @@ export default function MemberOrder() {
                             {index > 0 && (
                               <div key={index} className="other-img">
                                 <img
-                                  src={`http://localhost:3005/images/banner/${event.images}`}
+                                  src={`/images/banner/${event.images}`}
                                   alt=""
                                   className=""
                                 />

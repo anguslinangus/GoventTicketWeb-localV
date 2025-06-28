@@ -17,6 +17,7 @@ const sequelize = new Sequelize(
     logging: false,
     dialectOptions: {
       connectTimeout: 10000,
+      socketPath: process.env.DB_SOCKET,
     },
     define: {
       freezeTableName: true,
