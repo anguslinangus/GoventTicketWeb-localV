@@ -1,6 +1,6 @@
 export default function MyFooter() {
   return (
-    <footer className="footer mt-auto py-3 bg-primary d-none d-xxl-block">
+    <footer className="footer mt-auto py-3 bg-primary">
       <div className="container d-flex justify-content-between align-items-end my-4">
         <div className="d-flex">
           <div className="mx-5">
@@ -16,7 +16,7 @@ export default function MyFooter() {
         </div>
         <div>
           <div className="mb-3 text-end">
-            <img src="./govent-logo-black.png" alt="" />
+            <img src="/govent-logo-black.png" alt="" />
           </div>
           <p className="text-muted">
             COPYRIGHT © 2024 GOVENT All right reserved
